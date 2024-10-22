@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #0f0b1a;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header .d-flex {
+  flex-wrap: wrap;
+}
+
+.header-logo {
+  max-height: 160px;
+}
+
+.header-logo img {
+  height: 12vh;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu ul li .header-elements {
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  border-bottom: #4d115d solid 1px;
+  width: auto;
+  height: 3vh;
+}
+
+.menu ul li .header-elements:hover {
+  transition: ease-in 0.3s;
+  border-bottom: 1px #0d58b5 solid;
+}
+
+.menu ul li .active {
+  border-bottom: 1px #0d58b5 solid;
+}
+
+
+.hero-section {
+  background-image: url(src/images/hero-image.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.hero-section .hero-text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+
+.title h1 {
+  font-size: 44px;
+  text-wrap: nowrap;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 600;
+  text-shadow: 5px 8px black;
+  line-height: 80px;
+}
+
+.typing {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #fff;
+  width: 16ch;
+  animation: typing 3s steps(16) 1s infinite alternate, blink 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 16ch;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-right-color: #fff;
+  }
+
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.subtitle h2 {
+  font-weight: 600;
+  font-family: "Press Start 2P", system-ui;
+  text-shadow: 2px 5px black;
+  color: white;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.cards-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cards {
+  background-image: linear-gradient(#4d115db9, #0d59b542);
+  padding: 20px;
+  text-align: center;
+  width: 25vh;
+  height: 35vh;
+  margin: 50px;
+  border: #81818148 solid 2px;
+  border-radius: 30px;
+}
+
+.cards .game-name {
+  color: white;
+  font-size: 20px;
+}
+
+.cards .game-image {
+  overflow: hidden;
+}
+
+.cards .game-image img {
+  width: 160px;
+  height: 140px;
+  border-radius: 10px;
+  border: solid #fafafa10 2px;
+}
+
+.cards .stars {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cards .stars img {
+  margin: 5px;
+}
+
+.cards .description {
+  display: flex;
+}
+
+.cards .description .description-text {
+  border-radius: 5px;
+}
+
+.cards .description-text p {
+  color: white;
+  text-wrap: wrap;
+  font-size: 12px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.cards .description .description-platform img {
+  border: solid 1px white;
+  border-radius: 50%;
+}
+
+footer {
+  padding: 20px;
+  background-color: #130e20;
+}
+
+footer div p {
+  font-size: 12px;
+  color: #ffffff52;
+}
+
+footer .contact {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .d-flex {
+  flex-wrap: wrap;
+}
+
+footer div a {
+  color: #ffffff52;
+  text-decoration: none;
+}
+
+
+footer div a i {
+  color: #b4b4b4;
+}
+
+/* small mobile */
+@media (max-width: 480px) {
+  header .menu {
+    font-size: 16px;
+    text-align: end;
+    border: none;
+  }
+
+  header .navbar-toggler {
+    text-align: end;
+  }
+
+  header .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+
+  .title h1 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .subtitle h2 {
+    font-size: 15px;
+  }
+}
