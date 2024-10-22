@@ -137,17 +137,43 @@ header .d-flex {
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
+  perspective: 1000px;
 }
 
 .cards {
+  width: 25vh;
+  height: 35vh;
+  margin: 50px 0px 50px 0px;
+  border: #81818148 solid 2px;
+  border-radius: 30px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.cards.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.cards:hover {
+  width: 26vh;
+  border: #ffffff71 solid 2px;
+}
+
+.cards-front,
+.cards-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-image: linear-gradient(#4d115db9, #0d59b542);
   padding: 20px;
   text-align: center;
-  width: 25vh;
-  height: 35vh;
-  margin: 50px;
-  border: #81818148 solid 2px;
   border-radius: 30px;
+  backface-visibility: hidden;
+}
+
+.cards-back {
+  transform: rotateY(180deg)
 }
 
 .cards .game-name {
@@ -180,11 +206,7 @@ header .d-flex {
   display: flex;
 }
 
-.cards .description .description-text {
-  border-radius: 5px;
-}
-
-.cards .description-text p {
+.cards .short-description-text p {
   color: white;
   text-wrap: wrap;
   font-size: 12px;
@@ -197,6 +219,10 @@ header .d-flex {
   border-radius: 50%;
 }
 
+.cards .description-text {
+  font-size: 10px;
+}
+
 footer {
   padding: 20px;
   background-color: #130e20;
@@ -205,6 +231,10 @@ footer {
 footer div p {
   font-size: 12px;
   color: #ffffff52;
+}
+
+footer div p a {
+  font-size: 12px;
 }
 
 footer .contact {

@@ -1,11 +1,3 @@
-const list = []
-
-console.log(Object.values(list))
-
-let lista = Object.values(list)
-console.log(lista.length)
-
-if(lista[0] == undefined || lista.length == 2) {
-  console.log('vazio')
+function flipCard(card){
+  card.classList.toggle('is-flipped');
 }
-console.log(undefined == null)
