@@ -91,7 +91,7 @@ header .d-flex {
   font-family: "Press Start 2P", system-ui;
   font-weight: 600;
   text-shadow: 5px 8px black;
-  line-height: 80px;
+  line-height: 60px;
 }
 
 .typing {
@@ -122,6 +122,10 @@ header .d-flex {
   }
 }
 
+.subtitle {
+  max-width: 65%;
+}
+
 .subtitle h2 {
   font-weight: 600;
   font-family: "Press Start 2P", system-ui;
@@ -135,18 +139,44 @@ header .d-flex {
   width: 100%;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: nowrap;
   perspective: 1000px;
 }
 
+.carousel {
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #4d115d5b;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+
 .cards {
-  width: 25vh;
+  display: flex;
+  justify-content: center;
+  width: 25%;
   height: 35vh;
   margin: 50px 0px 50px 0px;
-  border: #81818148 solid 2px;
   border-radius: 30px;
-  transition: transform 0.8s;
+  transition: transform 0.3s ease;
   transform-style: preserve-3d;
   position: relative;
 }
@@ -155,21 +185,24 @@ header .d-flex {
   transform: rotateY(180deg);
 }
 
-.cards:hover {
-  width: 26vh;
-  border: #ffffff71 solid 2px;
-}
-
 .cards-front,
 .cards-back {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 25vh;
+  height: 39vh;
   background-image: linear-gradient(#4d115db9, #0d59b542);
+  border: #81818148 solid 2px;
   padding: 20px;
   text-align: center;
   border-radius: 30px;
   backface-visibility: hidden;
+  max-width: 245px;
+  max-height: 300px;
+}
+
+.cards-front:hover,
+.cards-back:hover {
+  border: #ffffff71 solid 2px;
 }
 
 .cards-back {
@@ -178,7 +211,7 @@ header .d-flex {
 
 .cards .game-name {
   color: white;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .cards .game-image {
@@ -186,8 +219,8 @@ header .d-flex {
 }
 
 .cards .game-image img {
-  width: 160px;
-  height: 140px;
+  width: 150px;
+  height: 120px;
   border-radius: 10px;
   border: solid #fafafa10 2px;
 }
@@ -209,9 +242,9 @@ header .d-flex {
 .cards .short-description-text p {
   color: white;
   text-wrap: wrap;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
-  margin: 10px;
+  margin: 5px;
 }
 
 .cards .description .description-platform img {
@@ -257,8 +290,11 @@ footer div a i {
   color: #b4b4b4;
 }
 
-/* small mobile */
-@media (max-width: 480px) {
+@media (max-width: 769px) {
+  * {
+    font-size: 14px;
+  }
+
   header .menu {
     font-size: 16px;
     text-align: end;
@@ -273,13 +309,85 @@ footer div a i {
     box-shadow: none;
   }
 
+  .hero-section {
+    padding: 5px
+  }
+
+  .hero-section .hero-text {
+    justify-content: center;
+
+  }
 
   .title h1 {
-    font-size: 18px;
+    font-size: 35px;
+    line-height: 40px;
+    margin-bottom: 40px;
+  }
+
+  .subtitle h2 {
+    font-size: 20px;
+  }
+
+  .cards {
+    width: 50%;
+  }
+
+  footer a {
+    font-size: 13px;
+  }
+}
+
+/* small mobile */
+@media (max-width: 580px) {
+  header .menu {
+    font-size: 16px;
+    text-align: end;
+    border: none;
+  }
+
+  header .navbar-toggler {
+    text-align: end;
+  }
+
+  header .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  .hero-section {
+    padding: 5px
+  }
+
+  .hero-section .hero-text {
+    justify-content: center;
+
+  }
+
+  .title h1 {
+    font-size: 20px;
     line-height: 25px;
+    margin-bottom: 20px;
   }
 
   .subtitle h2 {
     font-size: 15px;
+  }
+
+  .cards {
+    min-width: 100%;
+  }
+
+  .cards .game-name {
+    font-size: 16px;
+  }
+
+  footer .contact {
+    flex-direction: column;
+    text-align: start;
+  }
+
+  footer .contact div {
+    width: 100%;
+    font-size: 12px;
+    margin: 4px;
   }
 }
