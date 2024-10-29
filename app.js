@@ -18,17 +18,19 @@ const fetchCards = async () =>{
     if(Array.isArray(data)){
       generateCards(data)
       cards = document.querySelectorAll('.cards');
-      updateCarousel()
+      updateCarousel()      
     } else{
       console.log('A Api não está retornando corretamente')
     }
   } catch(error){
     console.log('Erro ao buscar os dados', error)
+    otherCards()
+    cards = document.querySelectorAll('.cards');
+    updateCarousel()
   }
 }
 
 fetchCards()
-console.log(cards.length)
 
 function generateCards(cardsData){
   cardsData.forEach(card =>{
@@ -62,6 +64,8 @@ function generateCards(cardsData){
   })
 }
 
+
+
 let currentIndex = 0;
 
 function generatePlatforms (platforms){
@@ -87,12 +91,11 @@ function generatePlatforms (platforms){
 function generateStars(rating){
   let starHtml= ''
   for(let i = 1; i <= rating; i++){
-    starHtml += `<img src="src/images/estrela.png" alt="">`
+    starHtml += `<img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">`
   }
   return starHtml
 }
 
-console.log(cards.length)
 
 function getCardsVisible() {
   if (window.innerWidth <= 580) {
@@ -121,7 +124,6 @@ nextButton.addEventListener('click', () => {
   } else {
     currentIndex = 0;
   }
-  console.log('apertou next')
   updateCarousel();
 });
 
@@ -138,3 +140,199 @@ prevButton.addEventListener('click', () => {
 
 window.addEventListener('resize', updateCarousel);
 
+function otherCards(){
+  const cardsHtml = `
+    <div class="cards col-6 col-sm-3" onclick="flipCard(this)">
+        <div class="cards-front">
+          <h3 class="game-name">The Last of Us</h3>
+          <div class="game-image">
+            <img src="src/images/game-images/The_Last_of_Us_capa.png" alt="Capa de The Last Of Us">
+          </div>
+          <div class="stars">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+          </div>
+          <div class="description">
+            <div class="short-description-text col-sm-7">
+              <p>Jogo de Zumbi e pai solteiro</p>
+            </div>
+            <div class="description-platform col-sm-5">
+              <img src="src/images/platforms/playstation.png" alt="">
+              <img src="src/images/platforms/steam.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-back">
+          <h3 class="game-name">The Last Of Us</h3>
+          <p class="description-text">
+            Joel, um sobrevivente solitário e que perdeu sua filha adolescente no início do
+            apocalipse, recebe a missão de levar para fora de uma zona de quarentena uma menina de 14 anos, chamada
+            Ellie. A jovem é a única humana conhecida que é imune ao fungo e se torna a esperança de uma cura.</p>
+        </div>
+      </div>
+      <div class="cards col-6 col-sm-3" onclick="flipCard(this)">
+        <div class="cards-front">
+          <h3 class="game-name">Bloons TD 6</h3>
+          <div class="game-image">
+            <img src="src/images/game-images/bloons.jpg" alt="Capa de Bloons TD 6">
+          </div>
+          <div class="stars">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+          </div>
+          <div class="description">
+            <div class="short-description-text col-sm-7">
+              <p>Mamacos que odeiam balões</p>
+            </div>
+            <div class="description-platform col-sm-5">
+              <img src="src/images/platforms/playstation.png" alt="">
+              <img src="src/images/platforms/steam.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-back">
+          <h3 class="game-name">Bloons TD 6</h3>
+          <p class="description-text">
+            Monte sua defesa perfeita com uma combinação de torres de macacos poderosas e heróis incríveis, depois
+            estoure até o último Bloon invasor!
+          </p>
+        </div>
+      </div>
+      <div class="cards col-6 col-sm-3" onclick="flipCard(this)">
+        <div class="cards-front">
+          <h3 class="game-name">Celeste</h3>
+          <div class="game-image">
+            <img src="src/images/game-images/celeste.avif" alt="Capa de Celeste">
+          </div>
+          <div class="stars">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+          </div>
+          <div class="description">
+            <div class="short-description-text col-sm-7">
+              <p>Olha o moranguin.... caí DE NOVO</p>
+            </div>
+            <div class="description-platform col-sm-5">
+              <img src="src/images/platforms/playstation.png" alt="">
+              <img src="src/images/platforms/steam.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-back">
+          <h3 class="game-name">Celeste</h3>
+          <p class="description-text">
+            Ajude Madeline a enfrentar seus demônios internos em sua jornada até o topo da Montanha Celeste, nesse jogo
+            de plataforma super afiado dos criadores de TowerFall. Desbrave centenas de desafios meticulosos, descubra
+            segredos complicados e desvende o mistério da montanha.
+          </p>
+        </div>
+      </div>
+      <div class="cards col-6 col-sm-3" onclick="flipCard(this)">
+        <div class="cards-front">
+          <h3 class="game-name">EA FC 24</h3>
+          <div class="game-image">
+            <img src="src/images/game-images/fifa-24.webp" alt="Capa do EA FC 24">
+          </div>
+          <div class="stars">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+          </div>
+          <div class="description">
+            <div class="short-description-text col-sm-7">
+              <p>Jogando pelado com os amigos</p>
+            </div>
+            <div class="description-platform col-sm-5">
+              <img src="src/images/platforms/playstation.png" alt="">
+              <img src="src/images/platforms/steam.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-back">
+          <h3 class="game-name">EA FC 24</h3>
+          <p class="description-text">
+            O EA SPORTS FC™ 25 oferece mais maneiras de ganhar pelo clube. Jogue com suas amizades nos seus modos
+            favoritos com o novo Rush 5x5 e leve seu clube à vitória com o FC IQ dando mais controle tático do que
+            nunca.
+          </p>
+        </div>
+      </div>
+      </div>
+      <div class="cards col-6 col-sm-3" onclick="flipCard(this)">
+        <div class="cards-front">
+          <h3 class="game-name">Enigma do Medo</h3>
+          <div class="game-image">
+            <img src="src/images/game-images/enigma_do_medo.jpg" alt="Capa de Enigma do Medo">
+          </div>
+          <div class="stars">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+          </div>
+          <div class="description">
+            <div class="short-description-text col-sm-7">
+              <p>Ótimo jogo. Ainda não joguei.</p>
+            </div>
+            <div class="description-platform col-sm-5">
+              <img src="src/images/platforms/playstation.png" alt="">
+              <img src="src/images/platforms/steam.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-back">
+          <h3 class="game-name">Enigma do Medo</h3>
+          <p class="description-text">
+            Se torne Mia, uma detetive paranormal buscando por seu pai que desapareceu. Investigue e desvende os
+            mistérios do Enigma do Medo, derrotando monstros assustadores em seu caminho.
+          </p>
+        </div>
+      </div>
+      <div class="cards col-6 col-sm-3" onclick="flipCard(this)">
+        <div class="cards-front">
+          <h3 class="game-name">Minecraft</h3>
+          <div class="game-image">
+            <img src="src/images/game-images/minecraft.avif" alt="Capa de Minecraft">
+          </div>
+          <div class="stars">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
+          </div>
+          <div class="description">
+            <div class="short-description-text col-sm-7">
+              <p>Meu PC não roda Minecraft :(</p>
+            </div>
+            <div class="description-platform col-sm-5">
+              <img src="src/images/platforms/playstation.png" alt="">
+              <img src="src/images/platforms/steam.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="cards-back">
+          <h3 class="game-name">Minecraft</h3>
+          <p class="description-text">
+            Construa qualquer coisa que você possa imaginar, descubra mistérios perturbadores e sobreviva à noite no
+            melhor jogo sandbox. O Minecraft é diferente cada vez que você o joga e aventuras inesquecíveis esperam por
+            você em cada esquina. Explore e construa seu caminho em um mundo infinito que você pode moldar de acordo com
+            sua vontade, um bloco de cada vez.
+          </p>
+        </div>
+      </div>
+    `
+    carousel.innerHTML += cardsHtml
+}
