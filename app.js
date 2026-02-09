@@ -21,6 +21,7 @@ const fetchCards = async () =>{
       updateCarousel()      
     } else{
       console.log('A Api não está retornando corretamente')
+      otherCards()
     }
   } catch(error){
     console.log('Erro ao buscar os dados', error)
@@ -108,10 +109,13 @@ function getCardsVisible() {
 }
 
 function updateCarousel() {
-  const cardsVisible = getCardsVisible();
-  const totalCards = cards.length;
-  const offset = -(currentIndex % totalCards) * (100 / cardsVisible);
-  carousel.style.transform = `translateX(${offset}%)`;
+    if (!cards.length) return;
+
+  const cardWidth = cards[0].getBoundingClientRect().width;
+
+  const offset = -(currentIndex * (cardWidth));
+
+  carousel.style.transform = `translateX(${offset}px)`;
 }
 
 
@@ -184,7 +188,6 @@ function otherCards(){
             <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
             <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
             <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
-            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
           </div>
           <div class="description">
             <div class="short-description-text col-sm-7">
@@ -211,8 +214,6 @@ function otherCards(){
             <img src="src/images/game-images/celeste.avif" alt="Capa de Celeste">
           </div>
           <div class="stars">
-            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
-            <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
             <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
             <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
             <img src="src/images/estrela.png" alt="imagem de estrela vazada, indica a pontuação de cada jogo">
@@ -284,7 +285,7 @@ function otherCards(){
           </div>
           <div class="description">
             <div class="short-description-text col-sm-7">
-              <p>Ótimo jogo. Ainda não joguei.</p>
+              <p>Senhor Veríssimo?🫦</p>
             </div>
             <div class="description-platform col-sm-5">
               <img src="src/images/platforms/playstation.png" alt="">
